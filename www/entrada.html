@@ -1,0 +1,120 @@
+<!-- Initial Page, "data-name" contains page name -->
+<div data-name="entrada" class="page">
+
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner barraNav">
+            <div class="left iconoMenu"><a href="#" class="panel-open" style="color: white;"><i style="" class="fas fa-bars"></i></a></div>
+             <div class="title" style="color: white;">Entradas</div>
+        </div>
+    </div>
+
+    <!-- Bottom Toolbar -->
+    <div class="toolbar toolbar-bottom fblanco">
+        <div class="toolbar-inner" style="background-color: transparent;">
+            <!-- Toolbar links -->
+            <div class="row" style="width: 100%;">
+                <div class="col-100"><img src="img/footer.jpeg" style="width: 100%; height: 10vh;"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable page content -->
+    <div class="page-content">
+        <div class="block" style="padding: 0px;">
+            <div class="row">
+                <div class="col-100" style="text-align: center;">
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="col-10"></div>
+                        <div class="col-80">
+                            <img class="imgLogin" id="imgLogin" style="width: 100%;" src="img/logoLogin.png">
+                        </div>
+                        <div class="col-10"></div>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="row block" style="align-items: center; margin: 0px; margin-bottom: 5px;">
+                <div class="col"></div>
+                <button class="col button button-raised button-fill button-round" onclick="tomarFoto(1);">Tomar foto</button>
+                <div class="col"></div>
+            </div>-->
+            <div class="block" style="text-align: center; font-weight: bold; margin: 0px;">
+                <p id="textoImagen" style="background-color: red; color: white; font-size: 24px;"></p>
+            </div>
+            <div class="block" style="text-align: center;">
+                <form class="list formEntrada" id="formEntrada" name="formEntrada" method="POST" action="javascript:guardarEntrada()">
+                    <ul style="background: transparent;">
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Documento</div>
+                                    <div class="item-input-wrap">
+                                        <input onchange="traerInfo(1);" onkeyup="this.value = soloNumeros(this.value);" style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="documento" name="documento" placeholder="Documento" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Nombres</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="nombres" name="nombres" placeholder="Nombres" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Apellidos</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Teléfono</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Dirección</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Temperatura</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="temperatura" name="temperatura" placeholder="Temperatura" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-30"></div>
+                                <button id="btnGuardarEntrada" type="submit" class="col-40 button button-fill button-round" style="background-color: #004288; margin-top: 15px;">Guardar</button>
+                                <div class="col-30"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

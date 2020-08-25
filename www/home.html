@@ -1,0 +1,63 @@
+<!-- Initial Page, "data-name" contains page name -->
+<div data-name="home" class="page">
+
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner barraNav">
+            <div class="left iconoMenu"><a href="#" class="panel-open" style="color: white;"><i style="" class="fas fa-bars"></i></a></div>
+            <div class="right">
+                <a onclick="limitePersonas();" class="link icon-only" id="btnConfig" style="color: white;">
+                    <i style="" class="fas fa-cogs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Toolbar -->
+    <div class="toolbar toolbar-bottom fblanco">
+        <div class="toolbar-inner" style="background-color: transparent;">
+            <!-- Toolbar links -->
+            <div class="row" style="width: 100%;">
+                <div class="col-100"><img src="img/footer.jpeg" style="width: 100%; height: 10vh;"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable page content -->
+    <div class="page-content">
+        <div class="block" style="">
+            <div class="row">
+                <!-- swiper properties in JSON format in data-swiper attribute -->
+                <div style="" class="swiper-container swiper-init">
+                    <div class="swiper-wrapper" id="sliderHome">
+                        <div class="swiper-slide"><img class="imgSlider" src="img/logoLogin.png"></div>
+                        <div class="swiper-slide"><img class="imgSlider" src="img/logoLogin.png"></div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <!--                                    <div class="swiper-button-next" style="color: #36CCC8;"></div>
+                                                        <div class="swiper-button-prev" style="color: #36CCC8;"></div>-->
+                </div>
+            </div>
+            <div class="divTR"><h1 style="color: #004288;" id="nombreEmp"></h1></div>
+            <div class="card" style="background: transparent;">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-100">
+                            <div style="text-align: center;">
+                                <h2>Personas en establecimiento</h2>
+                                <h1 id="numeroPersonas" style="color: white; background-color: red;"></h1>
+                            </div>
+                        </div>
+                        <div class="col-100">
+                            <a onclick="generarPdf();" class="button button-fill button-round colorApp">Generar Reporte</a>
+                            <a id="btnDescargarReporte" style="display: none;" class="button button-fill button-round" download>Descargar Reporte</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

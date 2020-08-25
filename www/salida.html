@@ -1,0 +1,110 @@
+<!-- Initial Page, "data-name" contains page name -->
+<div data-name="encuesta" class="page">
+
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner barraNav">
+            <div class="left iconoMenu"><a href="#" class="panel-open" style="color: white;"><i style="" class="fas fa-bars"></i></a></div>
+            <div class="title" style="color: white;" id="infoUser">Salidas</div>
+        </div>
+    </div>
+
+    <!-- Bottom Toolbar -->
+    <div class="toolbar toolbar-bottom fblanco">
+        <div class="toolbar-inner" style="background-color: transparent;">
+            <!-- Toolbar links -->
+            <div class="row" style="width: 100%;">
+                <div class="col-100"><img src="img/footer.jpeg" style="width: 100%; height: 10vh;"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable page content -->
+    <div class="page-content">
+        <div class="block" style="padding: 0px;">
+            <div class="row">
+                <div class="col-100" style="text-align: center;">
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="col-10"></div>
+                        <div class="col-80">
+                            <img class="imgLogin" id="imgLoginS" style="width: 100%;" src="img/logoLogin.png">
+                        </div>
+                        <div class="col-10"></div>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="row block" style="align-items: center; margin: 0px; margin-bottom: 5px;">
+                            <div class="col"></div>
+                            <button class="col button button-raised button-fill button-round" onclick="tomarFoto(2);">Tomar foto</button>
+                            <div class="col"></div>
+                        </div>-->
+            <div class="block" style="text-align: center; font-weight: bold; margin: 0px;">
+                <p id="textoImagenS" style="background-color: red; color: white; font-size: 24px;"></p>
+            </div>
+            <div class="block" style="text-align: center;">
+                <form class="list formSalida" id="formSalida" name="formSalida" method="POST" action="javascript:guardarSalida()">
+                    <ul style="background: transparent;">
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Documento</div>
+                                    <div class="item-input-wrap">
+                                        <input onchange="traerInfo(2);" onkeyup="this.value = soloNumeros(this.value);" style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="documentoS" name="documento" placeholder="Documento" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Nombres</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="nombresS" name="nombres" placeholder="Nombres" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Apellidos</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="apellidosS" name="apellidos" placeholder="Apellidos" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Teléfono</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="telefonoS" name="telefono" placeholder="Teléfono" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label" style="font-size: 18px; margin-bottom: 5px;">Dirección</div>
+                                    <div class="item-input-wrap">
+                                        <input style="border: 1px #004288 solid; border-radius: 5px;" type="text" id="direccionS" name="direccion" placeholder="Dirección" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-30"></div>
+                                <button id="btnGuardarSalida" type="submit" class="col-40 button button-fill button-round" style="background-color: #004288; margin-top: 15px;">Guardar</button>
+                                <div class="col-30"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
