@@ -72,6 +72,10 @@ var app = new Framework7({
                 },
                 pageInit: function () {
                     // do something when page initialized
+                    if (localStorage.sectores === undefined) {
+                        //
+                        cargarSectores();
+                    }
                 }
             }
         },
@@ -200,7 +204,11 @@ document.addEventListener('deviceready', function () {
         //
         if (localStorage.limite === undefined || localStorage.limite === '') {
             //
-            limitePersonas();
+            setTimeout(function () {
+                //
+                consultarLimitePersonas();
+            }, 3100);
+
         }
     }
     //
@@ -331,7 +339,7 @@ function login() {
                                     //
                                     if (localStorage.limite === undefined || localStorage.limite === '') {
                                         //
-                                        limitePersonas();
+                                        consultarLimitePersonas();
                                     }
                                     //
                                     intervaloActualizarPersonas = setInterval(function () {
@@ -375,7 +383,7 @@ function login() {
                     //
                     if (localStorage.limite === undefined || localStorage.limite === '') {
                         //
-                        limitePersonas();
+                        consultarLimitePersonas();
                     }
                     //
                     intervaloActualizarPersonas = setInterval(function () {
@@ -468,6 +476,7 @@ function logout() {
     delete localStorage.idDep;
     delete localStorage.password;
     delete localStorage.sectores;
+    delete localStorage.limite;
     //
     $$('#btnMenu').css('display', 'none');
     $$('#btnEntradaMenu').css('display', 'none');
@@ -768,6 +777,41 @@ function inicializarSlider() {
 }
 
 //
+function consultarLimitePersonas() {
+    //
+    app.request({
+        url: urlServidor + 'Read/consultarLimitePersonas',
+        data: {idEmp: localStorage.idUsu, idSed: localStorage.idSed},
+        method: "POST",
+        beforeSend: function () {
+            //
+        },
+        success: function (rsp) {
+            //
+            var data = JSON.parse(rsp);
+            //
+            if (data[0].limite > 0) {
+                //
+                localStorage.limite = data[0].limite;
+                //
+                $$('#numeroPersonas').html(poblacionA + '/' + localStorage.limite);
+            } else {
+                //
+                limitePersonas();
+            }
+        },
+        error: function (xhr, e) {
+            console.log(xhr);
+            modal = app.dialog.create({
+                title: 'Atención!',
+                text: 'Error de conexión!',
+                buttons: [{text: 'OK'}]
+            }).open();
+        }
+    });
+}
+
+//
 function limitePersonas() {
     //
     app.dialog.prompt('Limite de personas en el establecimiento?', 'Atencion!', function (limite) {
@@ -775,6 +819,47 @@ function limitePersonas() {
         localStorage.limite = limite;
         //
         $$('#numeroPersonas').html(poblacionA + '/' + localStorage.limite);
+        //
+        app.request({
+            url: urlServidor + 'Update/limitePersonas',
+            data: {idEmp: localStorage.idUsu, idSed: localStorage.idSed, limite: limite},
+            method: "POST",
+            beforeSend: function () {
+                //
+                app.preloader.show();
+            },
+            success: function (rsp) {
+                //
+                var data = JSON.parse(rsp);
+                //
+                app.preloader.hide();
+                //
+                if (data.estado == 'guardado') {
+                    //
+                    modal = app.dialog.create({
+                        title: 'Atención!',
+                        text: 'Guardado!',
+                        buttons: [{text: 'OK'}]
+                    }).open();
+                } else {
+                    //
+                    modal = app.dialog.create({
+                        title: 'Atención!',
+                        text: 'Error: ' + data.estado,
+                        buttons: [{text: 'OK'}]
+                    }).open();
+                }
+            },
+            error: function (xhr, e) {
+                app.preloader.hide();
+                console.log(xhr);
+                modal = app.dialog.create({
+                    title: 'Atención!',
+                    text: 'Error de conexión!',
+                    buttons: [{text: 'OK'}]
+                }).open();
+            }
+        });
     });
     //
     if (localStorage.limite !== '' && localStorage.limite !== undefined) {
