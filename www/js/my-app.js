@@ -324,8 +324,8 @@ function login() {
                                 //
                                 if (rsp2 === 'Actualizada') {
                                     //
-                                    $$('#btnEntradaMenu').css('display', 'none');
-                                    $$('#btnSalidaMenu').css('display', 'none');
+                                    $$('#btnEntradaMenu').css('display', '');
+                                    $$('#btnSalidaMenu').css('display', '');
                                     $$('#btnCerrarSesionMenu').css('display', '');
                                     //
                                     app.preloader.hide();
