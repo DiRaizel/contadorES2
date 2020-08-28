@@ -205,7 +205,6 @@ document.addEventListener('deviceready', function () {
                 //
                 consultarLimitePersonas();
             }, 3100);
-
         }
     }
     //
