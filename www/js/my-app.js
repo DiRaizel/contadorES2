@@ -72,10 +72,7 @@ var app = new Framework7({
                 },
                 pageInit: function () {
                     // do something when page initialized
-                    if (localStorage.sectores === undefined) {
-                        //
-                        cargarSectores();
-                    }
+                    cargarSectores();
                 }
             }
         },
@@ -1310,7 +1307,9 @@ function onSuccessC(imageURI) {
                 }
             }
             //
-            sacarPersona();
+//            sacarPersona();
+            $$('#documentoS').val(soloNumeros($$('#documentoS').val()));
+            traerInfo(2);
         } else {
             //
 //            $$('#documento').val(recognizedText['words']['wordtext'][9]);
@@ -1325,6 +1324,9 @@ function onSuccessC(imageURI) {
                     $$('#apellidos').val(recognizedText['words']['wordtext'][i + 2] + ' ' + recognizedText['words']['wordtext'][i + 3]);
                 }
             }
+            //
+            $$('#documento').val(soloNumeros($$('#documento').val()));
+            traerInfo(1);
         }
     }
     //
