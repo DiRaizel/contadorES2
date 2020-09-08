@@ -150,10 +150,10 @@ var $$ = Dom7;
 var mainView = app.views.create('.view-main');
 
 //
-//var urlServidor = 'http://167.71.248.182/contadorES2Php/';
-//var urlImagenSlider = 'http://167.71.248.182/contadorES2Admin/imagenes/sliders/';
-var urlServidor = 'http://192.168.0.47/contadorES2Php/';
-var urlImagenSlider = 'http://192.168.0.47/contadorES2Admin/imagenes/sliders/';
+var urlServidor = 'http://167.71.248.182/contadorES2Php/';
+var urlImagenSlider = 'http://167.71.248.182/contadorES2Admin/imagenes/sliders/';
+//var urlServidor = 'http://192.168.0.47/contadorES2Php/';
+//var urlImagenSlider = 'http://192.168.0.47/contadorES2Admin/imagenes/sliders/';
 var urlReportes = urlServidor + 'reportes/';
 
 //
